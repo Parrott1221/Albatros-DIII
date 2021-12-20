@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>ww1_pilot_old.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>siege</object-name>
+    <object-name>brasG</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>manche</object-name>
+    <object-name>cuisseG</object-name>
+    <object-name>cuisseD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>jambed</object-name>
+    <object-name>piedG</object-name>
+    <object-name>piedD</object-name>
+    <object-name>lunettes</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>lunettesTr</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/SPAD-VII/Models/Effects/Glass/glass</inherits-from>
+    <object-name>lunettesTr</object-name>
+  </effect>
+  
+  <animation>
+    <name>AnimeTete</name>
+    <object-name>lunettes</object-name>
+    <object-name>lunettesTr</object-name>
+    <object-name>tete</object-name>
+  </animation>
+
+  <animation>
+    <name>AnimeLunettes</name>
+    <object-name>lunettes</object-name>
+    <object-name>lunettesTr</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AnimeLunettes</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <factor> 40 </factor>
+    <center>
+      <x-m> 0.05961 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.7427 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+ 
+
+</PropertyList>

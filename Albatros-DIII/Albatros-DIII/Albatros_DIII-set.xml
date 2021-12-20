@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+
+************************************************************************
+-->
+
+
+<PropertyList>
+
+    <note>
+        This model was created using publicly available data, publicly available
+        technical reports, textbooks, and guesses. It contains no proprietary or
+        restricted data. It has been validated only to the extent that it seems
+        to "fly right", and possibly to comply to published, publicly known,
+        performance data (maximum speed, endurance, etc.). Thus, this model
+        is meant for educational and entertainment purposes only.
+
+        This simulation model is not endorsed by any manufacturer.
+    </note>
+
+ <sim include="Systems/views.xml">
+
+	<description>Albatros-DIII</description>
+        <author>LesterBoffo FDM, 3D ArgonV, Artists of SDoE's FS-WWI</author>
+        <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
+        <version>0.02 yasim revision  2013-11-07</version>
+
+	<flight-model archive="y">yasim</flight-model>
+	<aero archive="y">Albatros-DIII-yasim</aero>
+	<model>
+		<path archive="y">Aircraft/Albatros-DIII/Models/Albatros-DIII-model.xml</path>
+	</model>
+
+    <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Albatros-DIII/Models/Effects/guns/submodels.xml</path>
+    </submodels>
+
+    
+
+        <startup>
+            <splash-texture>Aircraft/Albatros-DIII/splash.png</splash-texture>
+        </startup>
+
+	<!-- <view>
+		<internal archive="y">true</internal>
+		<config>
+				<x-offset-m archive="y">0</x-offset-m>
+                        <y-offset-m archive="y">0.72</y-offset-m>
+                        <z-offset-m archive="y">0.823</z-offset-m>
+				<pitch-offset-deg archive="y">-4.0</pitch-offset-deg>
+				<default-field-of-view-deg type="double">68.0</default-field-of-view-deg>
+		</config>
+	</view> -->
+
+        <chase-distance-m type="double">-18.0</chase-distance-m>
+
+      <menubar include="Nasal/albatros-diii-menu.xml"/>   
+
+	<sound>
+		<audible>true</audible>
+		<path archive="y">Aircraft/Albatros-DIII/Sounds/Albatros-DIII-sound.xml</path>
+	</sound>
+
+
+ </sim>
+
+  <input>
+   <keyboard include="Nasal/albatros-diii-keyboard.xml"/>
+  </input>
+
+
+ <autopilot>
+     <settings>
+         <target-altitude-ft type="float">2000</target-altitude-ft>
+         <heading-bug-deg type="float">330</heading-bug-deg>
+     </settings>
+ </autopilot>
+
+ <controls>
+        <electric>
+            <master-switch>false</master-switch>
+            <battery-switch>false</battery-switch>
+            <external-power>false</external-power>
+        </electric>
+        <switches>
+            <master-avionics>false</master-avionics>
+        </switches>
+	<gear>
+                 <tailwheel-lock type="bool">0</tailwheel-lock>
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
+	<engines>
+		<engine n="0">
+			<magnetos>0</magnetos>
+		</engine>
+	</engines>
+        <flight>
+            <op-refuel-main type="bool">false</op-refuel-main>
+            <op-refuel-aux type="bool">false</op-refuel-aux>
+            <pilot-on type="bool">true</pilot-on>
+            <copilot-on type="bool">false</copilot-on>
+        </flight>
+ </controls>
+
+ <engines>
+	<engine>
+		<rpm type="double">0</rpm>
+	</engine>
+ </engines>
+
+ <nasal>
+    <guns>
+      <file>Aircraft/Albatros-DIII/Nasal/weapons.nas</file>
+      <file>Aircraft/Albatros-DIII/Nasal/revi.nas</file>
+    </guns>
+  </nasal>
+
+</PropertyList>

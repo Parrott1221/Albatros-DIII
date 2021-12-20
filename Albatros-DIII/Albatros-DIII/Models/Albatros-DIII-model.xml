@@ -1,0 +1,561 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+
+<!-- Albatros DIII-->
+
+    <path>albatros_diii.ac</path>
+    <offsets>
+        <pitch-deg>0</pitch-deg>
+        <z-m>0.0</z-m>
+    </offsets>
+
+ <effect>
+     <inherits-from>Effects/model-transparent</inherits-from>
+      <object-name>propfast</object-name>
+      <object-name>windscreen</object-name>
+      <object-name>wire4</object-name>
+      <object-name>wires7</object-name>
+      <object-name>wires9</object-name>  
+    </effect>
+
+    <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/guns/fire.xml</path>
+    <offsets>
+      <x-m> -0.8087 </x-m>
+      <y-m> -0.1505 </y-m>
+      <z-m>  0.583 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> 180 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/guns/fire.xml</path>
+    <offsets>
+      <x-m> -0.8087 </x-m>
+      <y-m>  0.1505 </y-m>
+      <z-m>  0.583 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> 180 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+     <!-- Pilot -->
+  <model>
+    <path>Aircraft/Albatros-DIII/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m>  1.0 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  -0.03 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Cranking effects -->
+
+  <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -0.30 </x-m>
+      <y-m> 0.57 </y-m>
+      <z-m> 0.46 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> 120 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- Ground dust -->
+
+  <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/ground/ground0.xml</path>
+    <offsets>
+      <x-m> -0.33 </x-m>
+      <y-m> -0.88 </y-m>
+      <z-m> -1.663 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/ground/ground1.xml</path>
+    <offsets>
+      <x-m> -0.33 </x-m>
+      <y-m>  0.88 </y-m>
+      <z-m> -1.663 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+ <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/ground/ground2.xml</path>
+    <offsets>
+      <x-m> 4.542 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> -0.63 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+ 
+<!-- engine running smoke -->
+
+   <model>
+    <path>Aircraft/Albatros-DIII/Models/Effects/exhaust/exhaustsmoke.xml</path>
+    <offsets>
+      <x-m> -0.22 </x-m>
+      <y-m> 0.57 </y-m>
+      <z-m> 0.46 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>  0 </pitch-deg>
+      <heading-deg> 120 </heading-deg>
+    </offsets>
+  </model>
+
+ <animation>
+  <type>spin</type>
+  <object-name>propeller</object-name>
+  <object-name>propfast</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 20 </value>
+      </greater-than>
+    </condition>
+  <property>engines/engine[0]/rpm</property>
+  <factor>-1.0</factor>
+  <center>
+   <x-m> 1.660</x-m>
+   <y-m> 0.00</y-m>
+   <z-m> -0.0031</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propfast</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine/rpm</property>
+        <value>500</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propeller</object-name>
+    <condition>
+      <less-than>
+        <property>engines/engine/rpm</property>
+	<value>499</value>
+      </less-than>
+    </condition>
+  </animation>
+
+ <!-- flight control surfaces anim -->
+
+ <animation>
+     <type>rotate</type>
+     <object-name>rudder</object-name>
+     <property>surface-positions/rudder-pos-norm</property>
+     <factor>40.0</factor>
+     <center>
+         <x-m>4.313</x-m>
+         <y-m>0</y-m>
+         <z-m>0.35</z-m>
+     </center>
+     <axis>
+         <x>0</x>
+         <y>0</y>
+         <z>1</z>
+     </axis>
+ </animation>
+
+
+ <animation>
+     <type>rotate</type>
+     <object-name>elevator</object-name>>
+     <property>surface-positions/elevator-pos-norm</property>
+     <interpolation>
+         <entry>
+             <ind>-1.0</ind>
+             <dep>-22</dep>
+         </entry>
+         <entry>
+             <ind>0</ind>
+             <dep>0</dep>
+         </entry>
+         <entry>
+             <ind>1.0</ind>
+             <dep>22</dep>
+         </entry>
+     </interpolation>
+     <center>
+         <x-m>4.952</x-m>
+         <y-m>0.0</y-m>
+         <z-m>0.012</z-m>
+     </center>
+     <axis>
+         <x>0.0</x>
+         <y>1.0</y>
+         <z>0.0</z>
+     </axis>
+ </animation>
+
+
+ <animation>
+     <type>rotate</type>
+     <object-name>leftaileron</object-name>
+     <property>surface-positions/left-aileron-pos-norm</property>
+     <interpolation>
+         <entry>
+             <ind>-1.0</ind>
+             <dep>20</dep>
+         </entry>
+         <entry>
+             <ind>0.0</ind>
+             <dep>0</dep>
+         </entry>
+         <entry>
+             <ind>1.0</ind>
+             <dep>-20</dep>
+         </entry>
+     </interpolation>
+     <axis>
+         <x1-m>0.564</x1-m>
+         <y1-m>-2.372</y1-m>
+         <z1-m>0.843</z1-m>
+         <x2-m>0.443</x2-m>
+         <y2-m>-4.367</y2-m>
+         <z2-m>0.864</z2-m>
+        </axis>
+ </animation>
+
+
+ <animation>
+     <type>rotate</type>
+     <object-name>rightaileron</object-name>
+     <property>surface-positions/right-aileron-pos-norm</property>
+     <interpolation>
+         <entry>
+             <ind>-1.0</ind>
+             <dep>20</dep>
+         </entry>
+         <entry>
+             <ind>0.0</ind>
+             <dep>0</dep>
+         </entry>
+         <entry>
+             <ind>1.0</ind>
+             <dep>-20</dep>
+         </entry>
+     </interpolation>
+     <axis>
+         <x1-m>0.443</x1-m>
+         <y1-m>4.367</y1-m>
+         <z1-m>0.864</z1-m>
+         <x2-m>0.564</x2-m>
+         <y2-m>2.372</y2-m>
+         <z2-m>0.843</z2-m>
+        </axis>
+ </animation>
+
+
+
+<!-- Wheel animations -->
+
+ <animation>
+  <type>spin</type>
+  <object-name>rightwheel</object-name>
+  <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 23 </factor>
+  <center>
+   <x-m>-0.374</x-m>
+   <y-m>0.875</y-m>
+   <z-m>-1.291</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y>-1.0</y>
+   <z> 0.0</z>
+  </axis>
+  </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>leftwheel</object-name>
+  <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 23 </factor>
+  <center>
+   <x-m>-0.374</x-m>
+   <y-m>-0.875</y-m>
+   <z-m>-1.291</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y>-1.0</y>
+   <z> 0.0</z>
+  </axis>
+  </animation>
+
+<!-- cockpit -->
+
+	<!-- Joystick -->
+	<animation>
+		<object-name>YokeElev</object-name>
+		<property>controls/flight/aileron</property>
+		<type>rotate</type>
+		<factor>20</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.374</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.532</z-m>
+		</center>
+	</animation>
+	<animation>
+		<object-name>YokeElev</object-name>
+		<property>controls/flight/elevator</property>
+		<type>rotate</type>
+		<factor>20</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.374</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.532</z-m>
+		</center>
+	</animation>
+
+ <!-- rudderbar -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rudderbar</object-name>
+  <property>controls/flight/rudder</property>
+  <factor>22</factor>
+  <center>
+   <x-m>0.215</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.50</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+<!-- instruments -->
+
+<!-- RPM -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>rpmneedle</object-name>
+   <property>engines/engine/rpm</property>
+    <interpolation>
+    <entry><ind>    0 </ind><dep> 0 </dep></entry>
+    <entry><ind> 400 </ind><dep>  -17 </dep></entry>
+    <entry><ind> 600 </ind><dep>  -58 </dep></entry>
+    <entry><ind> 800 </ind><dep>  -114 </dep></entry>
+    <entry><ind> 1000 </ind><dep>  -174 </dep></entry>
+    <entry><ind> 1200 </ind><dep>  -230 </dep></entry>
+    <entry><ind> 1400 </ind><dep>  -285 </dep></entry>
+    <entry><ind> 1600 </ind><dep>  -334 </dep></entry>
+    </interpolation>
+  <center>
+   <x-m>0.405</x-m>
+   <y-m>0.003</y-m>
+   <z-m> 0.461</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y> 0.0</y>
+   <z> 0.5235</z>
+  </axis>
+ </animation>
+
+<!-- Altimeter -->
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>Alt-longneedle</object-name>
+    <property>position/altitude-ft</property>
+    <interpolation>
+      <entry><ind>     0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1650 </ind><dep> 180 </dep></entry>
+      <entry><ind> 33000 </ind><dep> 3600 </dep></entry>
+    </interpolation>  
+  <center>
+   <x-m>0.428</x-m>
+   <y-m>-0.231</y-m>
+   <z-m> 0.448</z-m>
+  </center>
+    <axis> 
+      <x> 1.0 </x>
+      <y>  -0.3316 </y>
+      <z>  -0.263 </z>
+    </axis>
+  </animation>
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>Alt-shortneedle</object-name>
+    <property>position/altitude-ft</property>
+    <interpolation>
+      <entry><ind>     0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 9900 </ind><dep> 170 </dep></entry>
+      <entry><ind> 16500 </ind><dep> 248 </dep></entry>
+      <entry><ind> 26400 </ind><dep> 340 </dep></entry>
+    </interpolation>
+    <center>
+   <x-m> 0.482  </x-m>
+   <y-m> -0.231 </y-m>
+   <z-m> 0.448 </z-m>
+  </center>
+    <axis> 
+      <x> -1 </x>
+      <y>  -0.3316 </y>
+      <z>  0.333 </z>
+    </axis>
+  </animation>
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>altimeter-face</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <interpolation>
+      <entry><ind> 27.50 </ind><dep> -10 </dep></entry>
+      <entry><ind> 29.92 </ind><dep>   0 </dep></entry>
+      <entry><ind> 31.00 </ind><dep>  10 </dep></entry>
+    </interpolation> 
+  <center>
+   <x-m> 0.482 </x-m>
+   <y-m> -0.231 </y-m>
+   <z-m> 0.448 </z-m>
+  </center>
+    <axis> 
+      <x> -1 </x>
+      <y>  -0.3316 </y>
+      <z>  0.333 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>inhg.dn</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <step> -0.01 </step>
+        <min>  27.90 </min>
+        <max>  31.40 </max>
+        <wrap>  0 </wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>inhg.dn</object-name>
+    <visible>true</visible>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <step> -0.10 </step>
+        <min>  27.90 </min>
+        <max>  31.40 </max>
+        <wrap>  0 </wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>inhg.up</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <step> 0.01</step>
+        <min> 27.90</min>
+        <max> 31.40</max>
+        <wrap> 0 </wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>inhg.up</object-name>
+    <visible>true</visible>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <step> 0.1</step>
+        <min> 27.90</min>
+        <max> 31.40</max>
+        <wrap> 0 </wrap>
+      </binding>
+    </action>
+  </animation>
+
+<!-- Fuel Gauge -->
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>fuelgauge-needle</object-name>
+    <property>consumables/fuel/tank[0]/level-gal_us</property>
+    <interpolation>
+      <entry><ind>    0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 21.3 </ind><dep> -345 </dep></entry>
+    </interpolation>
+    <center>
+   <x-m> 0.556  </x-m>
+   <y-m> 0.3405 </y-m>
+   <z-m> 0.2485 </z-m>
+  </center>
+    <axis> 
+      <x>  -0.179 </x>
+      <y>  1.0 </y>
+      <z>   0.1047 </z>
+    </axis>
+  </animation>
+
+
+</PropertyList>
