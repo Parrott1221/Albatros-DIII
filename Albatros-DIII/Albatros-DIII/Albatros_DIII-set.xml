@@ -22,7 +22,7 @@
  <sim include="Systems/views.xml">
 
 	<description>Albatros-DIII</description>
-        <author>LesterBoffo FDM, 3D ArgonV, Artists of SDoE's FS-WWI</author>
+        <author>Parrott, Parrott Industries Team, LesterBoffo FDM, 3D ArgonV, Artists of SDoE's FS-WWI</author>
         <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
         <version>0.02 yasim revision  2013-11-07</version>
 
